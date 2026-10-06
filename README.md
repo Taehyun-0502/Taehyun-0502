@@ -34,7 +34,7 @@ Java·Spring을 중심으로 **인증, 데이터 정합성, 실시간 통신, �
 [Repository](https://github.com/Taehyun-0502/pet_project)
 
 - **Refresh Token 재사용 감지**
-  - 재사용 감지 후 예외가 발생하면서 토큰 폐기까지 함께 Rollback되는 문제
+  - 재사용 감지 후 예외가 발생하면서 토큰 폐기까지 함께 롤백되는 문제
   - 폐기 로직을 별도 Bean의 `REQUIRES_NEW` 트랜잭션으로 분리해 해결
 - **채팅 메시지 정합성**
   - DB Commit 이전에 메시지가 방송될 수 있는 문제
