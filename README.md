@@ -8,8 +8,8 @@ Java·Spring을 중심으로 **인증, 데이터 정합성, 실시간 통신, �
 - 인증과 권한은 어느 계층에서 검증해야 하는가
 - 트랜잭션 경계를 어디에 두고, 데이터는 언제 확정된 것으로 볼 것인가
 
-📧 uiop7000@naver.com
-
+- 이메일 uiop7000@naver.com
+- 포트폴리오 [Backend Portfolio](https://github.com/Taehyun-0502/portfolio)
 ---
 
 ## Tech Stack
