@@ -54,10 +54,10 @@ Java·Spring을 중심으로 **인증, 데이터 정합성, 실시간 통신, �
 
 - **결제 정합성**
   - 현장 결제(외부 PG 미연동) 확정 과정에서 결제·매출 저장과 계약 상태 변경 중 일부만 성공할 수 있는 문제
-  - 결제 흐름과 계약 서비스 호출을 하나의 트랜잭션 경계로 구성해 부분 성공 방지
+  - 결제·매출 기록과 팀원이 구현한 계약 서비스 호출을 같은 트랜잭션 경계로 구성했습니다. 실제 DB 롤백 시나리오 검증은 남은 과제입니다.
 - **정산 동시성**
   - 동일 지점·월의 정산이 동시에 생성될 수 있는 문제
-  - PostgreSQL `pg_advisory_xact_lock`으로 지점별 정산 생성 직렬화
+  - PostgreSQL pg_advisory_xact_lock을 적용해 지점별 정산 생성을 직렬화하도록 설계했습니다. 실제 동시 실행 검증은 남은 과제입니다.
 - PT 사용량을 계약 원본이 아닌 별도 원장에서 관리하고 조건부 `UPDATE`로 초과 차감 방지
 - SSE 기반 실시간 알림과 알림 이력 관리
 
@@ -66,7 +66,7 @@ Java·Spring을 중심으로 **인증, 데이터 정합성, 실시간 통신, �
 ###  Cooking Star — 레시피·요리 커뮤니티
 
 `2026.05.08 ~ 2026.05.26` · 2인 팀  
-**담당: 회원·인증, 댓글·좋아요·북마크·팔로우, Kakao/Naver 연동, 관리자·방문 집계**
+**담당: 회원·인증, 댓글·레시피 좋아요·북마크·팔로우, Kakao Local·Naver Blog, 관리자·방문 집계 · 요리 기록 게시판 공동 구현**
 
 [Repository](https://github.com/Taehyun-0502/cooking_star)
 
@@ -74,4 +74,5 @@ Java·Spring을 중심으로 **인증, 데이터 정합성, 실시간 통신, �
 - `Principal`과 SQL 소유자 조건을 이용한 사용자 데이터 접근 제어
 - 댓글 · 좋아요 · 북마크 · 팔로우
 - PostgreSQL `ON CONFLICT`를 활용한 방문 기록 중복 방지
-- Kakao Local · Naver Search API 연동
+- Kakao Local · Naver Blog Search API 연동
+- Naver Shopping·장바구니·구매내역·Gemini는 팀원 담당
